@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!-- 数据库驱动包位置 -->
+	<!-- <classPathEntry location="D:\software\lib\mysql-connector-java-5.1.21.jar" /> -->
+	<classPathEntry location="C:\Users\think\.m2\repository\com\oracle\ojdbc7\12.1.0.2\ojdbc7-12.1.0.2.jar" />
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+	
+		  <plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"></plugin>  
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>  
+        <!-- Pagination -->  
+        <!-- <plugin type="com.hx.util.OracleAndMySqlPaginationPlugin"></plugin>   -->
+	
+		 <!-- 取消注释 -->  
+        <commentGenerator>  
+            <property name="suppressDate" value="true" />  
+            <property name="suppressAllComments" value="true" />  
+        </commentGenerator> 
+		<!-- 数据库链接URL、用户名、密码 -->
+		<!-- <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/sy" userId="sypro" password="sypro"> -->
+		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@61.160.159.14:10000:njorcl" userId="njtelecom" password="njcd2017">
+		</jdbcConnection>
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<!-- 生成模型的包名和位置 -->
+		<javaModelGenerator targetPackage="com.ck.aopTest.bean.quizarium" targetProject="aopTest\src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<!-- 生成的映射文件包名和位置 -->
+		<sqlMapGenerator targetPackage="com.ck.aopTest.mapping.quizarium" targetProject="aopTest\src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<!-- 生成DAO的包名和位置 -->
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.ck.aopTest.dao.quizarium" targetProject="aopTest\src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		<!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
+		<table tableName="quizarium_pro" domainObjectName="QuizariumPro" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+	</context>
+</generatorConfiguration>
